@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compensation-svc
+  labels:
+    app: compensation-svc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: compensation-svc
+  template:
+    metadata:
+      labels:
+        app: compensation-svc
+    spec:
+      containers:
+        - name: compensation-svc
+          image: chaosengacr.azurecr.io/compensation-service:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: compensation-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: compensation-svc
+  ports:
+    - protocol: TCP
+      port: 80
+      
