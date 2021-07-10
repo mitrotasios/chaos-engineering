@@ -1,0 +1,35 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  namespace: ingress-basic
+  name: account-ingress-basic-manager-nqdzt
+
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: ingress-basic
+  name: role-ingress-basic-manager-nqdzt
+rules:
+- apiGroups: [""]
+  resources: ["pods", "namespaces"]
+  verbs: ["get", "watch", "list"]
+- apiGroups:
+  - chaos-mesh.org
+  resources: [ "*" ]
+  verbs: ["get", "list", "watch", "create", "delete", "patch", "update"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bind-ingress-basic-manager-nqdzt
+  namespace: ingress-basic
+subjects:
+- kind: ServiceAccount
+  name: account-ingress-basic-manager-nqdzt
+  namespace: ingress-basic
+roleRef:
+  kind: Role
+  name: role-ingress-basic-manager-nqdzt
+  apiGroup: rbac.authorization.k8s.io
