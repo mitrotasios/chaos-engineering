@@ -5,6 +5,8 @@ FROM python:3.8
 RUN mkdir /app
 WORKDIR /app/reviewsservice
 
+EXPOSE 8000
+
 # Add current directory code to working directory
 ADD . /app/
 
@@ -38,5 +40,4 @@ RUN pip3 install pipenv
 # Install project dependencies
 RUN pipenv install --skip-lock --system --dev
 
-EXPOSE 8000
 CMD gunicorn reviewsservice.wsgi:application --bind 0.0.0.0:$PORT
