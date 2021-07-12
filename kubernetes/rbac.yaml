@@ -2,14 +2,14 @@ kind: ServiceAccount
 apiVersion: v1
 metadata:
   namespace: ingress-basic
-  name: account-ingress-basic-manager-nqdzt
+  name: account-ingress-basic-manager-dknha
 
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   namespace: ingress-basic
-  name: role-ingress-basic-manager-nqdzt
+  name: role-ingress-basic-manager-dknha
 rules:
 - apiGroups: [""]
   resources: ["pods", "namespaces"]
@@ -23,13 +23,13 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: bind-ingress-basic-manager-nqdzt
+  name: bind-ingress-basic-manager-dknha
   namespace: ingress-basic
 subjects:
 - kind: ServiceAccount
-  name: account-ingress-basic-manager-nqdzt
+  name: account-ingress-basic-manager-dknha
   namespace: ingress-basic
 roleRef:
   kind: Role
-  name: role-ingress-basic-manager-nqdzt
+  name: role-ingress-basic-manager-dknha
   apiGroup: rbac.authorization.k8s.io
