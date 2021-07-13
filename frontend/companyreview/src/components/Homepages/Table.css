@@ -4,6 +4,8 @@ table {
     width: 100%;    
     padding-left: 0px;
     padding-right: 0px;
+    border: 1px solid lightgray;
+    box-shadow: 0px 0px 5px 0px lightgray;
   }
   
 table td {
@@ -14,7 +16,6 @@ table td {
     padding-right: 8px;
     padding-top: 8px;
     background-color: white;
-
 }
 
 /*
@@ -49,15 +50,12 @@ table tbody tr:hover {background-color: #ddd;}
 
   
 table th {
-    padding-top: 0px; 
-    padding-bottom: 0px;
+    padding-top: 10px; 
     padding-bottom: 10px;
     padding-left: 8px;
     text-align: left;
-    background-color: none;
-    color: #432F87;
-    border: 1px solid black;
-    border-radius: 10px;
+    background-color: #BABDFF;
+    color: white;
 }
 
 #searchBar {

@@ -14,7 +14,7 @@ class Main extends Component {
     render() {
         return(
             <>
-            <div className="outer-container">
+            <div className="outer-container container-fluid min-vh-100 d-flex flex-column g-0">
                 <Header />
                 <Switch>
                     <Route exact path="/" component={CompensationsHome} />

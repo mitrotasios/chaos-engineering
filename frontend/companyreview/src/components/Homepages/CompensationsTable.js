@@ -65,7 +65,7 @@ export const CompensationsTable = ({ data }) => {
           </tbody>
         </table>
         <br />
-        <div>Showing the first 20 results of {rows.length} rows</div>
+        {/* <div>Showing the first 20 results of {rows.length} rows</div> */}
       </>
     )
 }

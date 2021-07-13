@@ -13,8 +13,8 @@ class CompensationsHome extends Component {
     }
 
     componentDidMount() {
-        //fetch('http://localhost:8000/')
-        fetch(BASE_URL + 'compensations')
+        fetch('http://localhost:8000/')
+        //fetch(BASE_URL + 'compensations')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -35,9 +35,9 @@ class CompensationsHome extends Component {
     render() {
         return(
             <div className="container-fluid">
-                <div className="container">
-                    <div className="row">
-                        <div className="col">
+                <div className="container d-flex flex-column">
+                    <div className="row d-flex flex-row flex-grow-1">
+                        <div className="col flex-grow-1">
                             <CompensationsTable data={ this.state.compensations } />
                         </div>
                     </div>
