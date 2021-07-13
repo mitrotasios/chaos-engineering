@@ -11,6 +11,9 @@ node_modules
 # production
 frontend/companyreview/build
 
+# secrets
+config.js
+
 # misc
 .DS_Store
 .env.local

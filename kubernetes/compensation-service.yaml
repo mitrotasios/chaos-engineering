@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: compensation-svc
-          image: chaosengacr.azurecr.io/compensation-service:v1.0.2
+          image: chaosengacr.azurecr.io/compensation-service:v1.0.3
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8888

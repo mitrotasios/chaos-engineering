@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import '../Main.css'
+import '../Main.css';
+import { BASE_URL } from '../../config';
 
 class CompensationsHome extends Component {
     constructor(props) {
@@ -7,7 +8,10 @@ class CompensationsHome extends Component {
     }
 
     componentDidMount() {
-        fetch('http://20.76.212.193/compensations')
+
+        
+        //fetch('http://localhost:8888/' + 'reviews')
+        fetch(BASE_URL + 'compensations')
         .then(response => {
             if (response.ok) {
                 return response;

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: reviews-svc
-          image: chaosengacr.azurecr.io/reviews-service:v1.0.1
+          image: chaosengacr.azurecr.io/reviews-service:v1.0.3
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
