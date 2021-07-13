@@ -13,8 +13,8 @@ class ReviewsHome extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8888/')
-        //fetch(BASE_URL + 'reviews')
+        //fetch('http://localhost:8888/')
+        fetch(BASE_URL + 'reviews')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -29,7 +29,7 @@ class ReviewsHome extends Component {
         )
         .then(response => response.json())
         .then(response => this.setState({ reviews: response }))
-        .catch(error => { console.log('User', error.message)});
+        .catch(error => { console.log(error)});
     }
 
     render() {
