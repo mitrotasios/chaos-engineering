@@ -39,9 +39,10 @@
     width: 50px;
 }
 
-.nav-btn {
+.nav-btn > a {
     margin-right: 30px;
     text-decoration: none;
+    color: white;
 }
 
 a {

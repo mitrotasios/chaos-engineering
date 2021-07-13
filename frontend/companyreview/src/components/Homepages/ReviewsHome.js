@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import '../Main.css';
 import { BASE_URL } from '../../config';
+import { ReviewsTable } from './ReviewsTable';
 
 class ReviewsHome extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            reviews: []
+        }
     }
 
     componentDidMount() {
-        //fetch('http://localhost:8888/' + 'reviews')
-        fetch(BASE_URL + 'reviews')
+        fetch('http://localhost:8888/')
+        //fetch(BASE_URL + 'reviews')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -23,7 +28,7 @@ class ReviewsHome extends Component {
             }
         )
         .then(response => response.json())
-        .then(response => alert(JSON.stringify(response)))
+        .then(response => this.setState({ reviews: response }))
         .catch(error => { console.log('User', error.message)});
     }
 
@@ -33,7 +38,7 @@ class ReviewsHome extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            Hello Reviews
+                            <ReviewsTable data={this.state.reviews} />
                         </div>
                     </div>
                 </div>

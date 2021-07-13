@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import '../Main.css';
 import { BASE_URL } from '../../config';
+import { CompensationsTable } from './CompensationsTable';
 
 class CompensationsHome extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            compensations: []
+        }
     }
 
     componentDidMount() {
-
-        
-        //fetch('http://localhost:8888/' + 'reviews')
-        fetch(BASE_URL + 'compensations')
+        fetch('http://localhost:8000/')
+        //fetch(BASE_URL + 'compensations')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -25,7 +28,7 @@ class CompensationsHome extends Component {
             }
         )
         .then(response => response.json())
-        .then(response => alert(JSON.stringify(response)))
+        .then(response => this.setState({ compensations: response }))
         .catch(error => { console.log('User', error.message)});
     }
 
@@ -35,7 +38,7 @@ class CompensationsHome extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            Hello Comps
+                            <CompensationsTable data={ this.state.compensations } />
                         </div>
                     </div>
                 </div>

@@ -13,11 +13,11 @@ class Header extends Component {
                 <div className="container header h-100">
                     <div className="row h-100 text">
                         <div className="col-10 my-auto text-start">
-                            <span className="logo">levels.fyi</span>
+                            <a href="/"><span className="logo">levels.fyi</span></a>
                             <input className="search-bar"></input>
                         </div>
                         <div className="col-2 contribute-wrapper my-auto ms-auto">
-                            <a className="contribute-btn" type="button">Contribute</a>
+                            <a href="/contribute" className="contribute-btn float-end" type="button">Contribute</a>
                         </div>
                     </div>
                 </div>
