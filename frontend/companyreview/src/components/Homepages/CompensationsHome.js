@@ -13,8 +13,8 @@ class CompensationsHome extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8000/')
-        //fetch(BASE_URL + 'compensations')
+        //fetch('http://localhost:8000/')
+        fetch(BASE_URL + 'compensations')
         .then(response => {
             if (response.ok) {
                 return response;

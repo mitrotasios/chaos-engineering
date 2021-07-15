@@ -1,12 +1,13 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { BASE_URL } from "../../config";
 
 export const ReviewsForm = () => {
   const { register, errors, handleSubmit } = useForm();
   const onSubmit = (data) => {
     fetch(
-        'http://localhost:8888/',
-        //BASE_URL+'compensations',
+        //'http://localhost:8888/',
+        BASE_URL+'compensations',
         {
             method: 'post',
             body: JSON.stringify(data),

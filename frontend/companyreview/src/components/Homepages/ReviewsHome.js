@@ -13,8 +13,8 @@ class ReviewsHome extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8888/')
-        //fetch(BASE_URL + 'reviews')
+        //fetch('http://localhost:8888/')
+        fetch(BASE_URL + 'reviews')
         .then(response => {
             if (response.ok) {
                 return response;
