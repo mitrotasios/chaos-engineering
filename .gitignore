@@ -13,6 +13,10 @@ frontend/companyreview/build
 
 # secrets
 config.js
+config.py
+
+# migrations
+compensation-service/compensationsservice/compensations/migrations/
 
 # misc
 .DS_Store
