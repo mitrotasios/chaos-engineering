@@ -9,6 +9,8 @@ spec:
   containerName: 'compensation-svc'
   selector:
     namespaces:
-      - 'ingress-basic'
+      - ingress-basic
+    labelSelectors:
+      'app': 'compensation-svc'
   scheduler:
     cron: '@every 30s'

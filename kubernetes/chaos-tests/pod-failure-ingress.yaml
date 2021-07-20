@@ -1,0 +1,22 @@
+apiVersion: chaos-mesh.org/v1alpha1
+kind: PodChaos
+metadata:
+  name: pod-failure
+  #namespace: chaos-testing
+spec:
+  action: pod-failure
+  mode: all
+  value: ''
+  duration: '1m'
+  selector:
+    namespaces:
+      - ingress-basic
+    labelSelectors:
+      'app.kubernetes.io/instance': 'nginx-ingress'
+    #   'app': 'compensation-svc'
+    # pods:
+    #   ingress-basic: # namespace of the target pods
+    #     - nginx-ingress-ingress-nginx-controller-6f4dbcc6bb-7twx4
+    #     - nginx-ingress-ingress-nginx-controller-6f4dbcc6bb-lt4lv
+  scheduler:
+    cron: '@every 2m'
