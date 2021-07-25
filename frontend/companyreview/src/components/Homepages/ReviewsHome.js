@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../Main.css';
+import LoadingSpinner from '../Misc/Loading';
+import FetchErrorMsg from '../Misc/FetchError';
 import { BASE_URL } from '../../config';
 import { ReviewsTable } from './ReviewsTable';
 
@@ -8,13 +10,16 @@ class ReviewsHome extends Component {
         super(props);
 
         this.state = {
-            reviews: []
+            reviews: [],
+            isLoading: true,
+            isError: false,
+            errMess: ""
         }
     }
 
     componentDidMount() {
-        //fetch('http://localhost:8888/')
-        fetch(BASE_URL + 'reviews')
+        fetch('http://localhost:8000/')
+        //fetch(BASE_URL + 'reviews')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -28,8 +33,8 @@ class ReviewsHome extends Component {
             }
         )
         .then(response => response.json())
-        .then(response => this.setState({ reviews: response }))
-        .catch(error => { console.log(error)});
+        .then(response => this.setState({ reviews: response, isLoading: false }))
+        .catch(error => {this.setState({ isLoading: false, isError: true, errMess: "Failed to fetch content." }); console.log(error)});
     }
 
     render() {
@@ -38,7 +43,19 @@ class ReviewsHome extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <ReviewsTable data={this.state.reviews} />
+                            {this.state.isLoading ? ( 
+                                <div className="col-12 d-flex justify-content-center mt-5">
+                                    <LoadingSpinner type={"bars"} color={"#00FF85"} height={'20px'} width={'20px'} />
+                                </div>
+                            ) : (
+                                this.state.isError ? (
+                                    <div className="col-12 d-flex justify-content-center mt-5">
+                                        <FetchErrorMsg errMess={this.state.errMess}/>
+                                    </div>
+                                ) : (
+                                    <ReviewsTable data={this.state.reviews} />
+                                )
+                            )}
                         </div>
                     </div>
                 </div>

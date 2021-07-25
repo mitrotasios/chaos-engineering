@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../config";
+import PostMessage from "../Misc/PostMessage";
 
 export const ReviewsForm = () => {
   const { register, errors, handleSubmit } = useForm();
+
+  const [isPosted, setPosted] = useState(null)
+  const [errMess, setErrMess] = useState("")
+
   const onSubmit = (data) => {
     fetch(
         //'http://localhost:8888/',
@@ -29,12 +34,26 @@ export const ReviewsForm = () => {
             }
         )
         .then(response => response.json())
-        .then(response => {alert("Review successfully added")})
-        .catch(error => { console.log('User', error.message)});
+        .then(response => {setPosted(true)})
+        .catch(error => {setPosted(false); setErrMess("Data could not be posted. Server is not responding."); console.log( error.message )});
   };
   console.log(errors);
 
   return (
+    <>
+    {isPosted===null ? null : (
+        isPosted ? (
+            <div className="row input-field">
+                <PostMessage success={true} message={"Successfully Posted"}/>
+            </div>
+        ) : (
+            <div className="row input-field">
+                <div className="col">
+                <PostMessage success={false} message={errMess}/>
+                </div>
+            </div>
+        )
+    )}
     <form onSubmit={handleSubmit(onSubmit)}>
         <div className="row input-field mt-3">
             <div className="col">
@@ -93,5 +112,6 @@ export const ReviewsForm = () => {
             </div>
         </div>
     </form>
+    </>
   );
 }

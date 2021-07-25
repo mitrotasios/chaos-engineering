@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import { useTable, useSortBy, useGlobalFilter, useRowSelect, useExpanded } from 'react-table';
+import React from 'react';
+import { useTable, useSortBy } from 'react-table';
 import { COMP_COLUMNS } from './CompensationsColumns';
 import './Table.css';
 

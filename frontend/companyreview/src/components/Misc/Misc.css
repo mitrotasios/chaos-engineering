@@ -1,0 +1,18 @@
+.error-popup {
+    height: 150px;
+    width: 100vh;
+    background-color: rgba(255, 62, 50, 0.54);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px lightgrey;
+}
+
+.post-popup {
+    height: 150px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 0px lightgrey;
+}
+
+.err-text {
+    color: white;
+}
