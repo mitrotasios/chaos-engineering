@@ -10,10 +10,11 @@ from companyinfoservice.config import BASE_URL
 import companystats.parse_data as parse_data
 
 
-# Create your views here.
 @api_view(['GET'])
+# Route for requesting company specific information or statistics 
 def company_info_list(request):
     if request.method == "GET":
+        # Make calls to other microservices in the cluster to retrieve relevant data
         compensations_url = "http://localhost:8888/" #BASE_URL+"compensations/"
         reviews_url = "http://localhost:8001/" #BASE_URL+"reviews/"
         response_data = []

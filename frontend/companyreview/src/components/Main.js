@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route /*, Redirect, withRouter */} from 'react-router-dom';
-import CompensationsHome from './Homepages/CompensationsHome';
-import ReviewsHome from './Homepages/ReviewsHome';
+import CompensationsHome from './Compensations/CompensationsHome';
+import ReviewsHome from './Reviews/ReviewsHome';
 import Header from './Header';
 import ContributePage from './Contribute/Contribute';
 import './Main.css'

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useTable, useSortBy } from 'react-table';
-import { REVIEWS_COLUMNS } from './ReviewsColumns';
-import './Table.css';
+import { COMP_COLUMNS } from './CompensationsColumns';
+import '../Table.css';
 
-export const ReviewsTable = ({ data }) => {
-    const columns = REVIEWS_COLUMNS;
+export const CompensationsTable = ({ data }) => {
+    const columns = COMP_COLUMNS;
 
     const {
       getTableProps,
