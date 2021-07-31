@@ -31,28 +31,32 @@ def get_avg_ratings(companies_list, reviews_data):
     return ratings
 
 def get_avg_compensations(companies_list, compensations_data):
-    compensations = {}
+    compensations_dict = {}
 
     for entry in compensations_data:
         company = entry["company"]
         job_title = entry["job_title"]
         if company in companies_list:
-            compensations[company] = {}
-            if job_title not in compensations[company]:
-                compensations[company][job_title] = [int(entry["total_compensation"])]
+            compensations_dict[company] = {}
+            if job_title not in compensations_dict[company]:
+                compensations_dict[company][job_title] = [int(entry["total_compensation"])]
             else:
-                compensations[company][job_title].append(int(entry["total_compensation"]))
+                compensations_dict[company][job_title].append(int(entry["total_compensation"]))
 
-    for company in compensations:
-        for job_title in compensations[company]:
-            num_entries = len(compensations[company][job_title])
-            average_compensation = sum(compensations[company][job_title]) / num_entries
-            compensations[company][job_title] = {}
+    for company in compensations_dict:
+        avg_compensations_list = []
+        for job_title in compensations_dict[company]:
+            num_entries = len(compensations_dict[company][job_title])
+            average_compensation = sum(compensations_dict[company][job_title]) / num_entries
+            compensation_info_per_job = {}
+            compensation_info_per_job["job_title"] = job_title
             try:
-                compensations[company][job_title]["average_compensation"] = average_compensation
-                compensations[company][job_title]["number_of_entries"] = num_entries
+                compensation_info_per_job["average_compensation"] = average_compensation
+                compensation_info_per_job["number_of_entries"] = num_entries
             except:
-                compensations[company][job_title]["average_compensation"] = None
-                compensations[company][job_title]["number_of_entries"] = 0
+                compensation_info_per_job["average_compensation"] = None
+                compensation_info_per_job["number_of_entries"] = 0
+            avg_compensations_list.append(compensation_info_per_job)
+        compensations_dict[company] = avg_compensations_list
     
-    return compensations
+    return compensations_dict

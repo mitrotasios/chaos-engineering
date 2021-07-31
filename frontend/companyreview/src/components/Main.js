@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route /*, Redirect, withRouter */} from 'react-router-dom';
 import CompensationsHome from './Compensations/CompensationsHome';
 import ReviewsHome from './Reviews/ReviewsHome';
+import CompanyDetailsHome from './CompanyDetails/CompanyDetailsHome';
 import Header from './Header';
 import ContributePage from './Contribute/Contribute';
 import './Main.css'
@@ -20,6 +21,7 @@ class Main extends Component {
                     <Route exact path="/" component={CompensationsHome} />
                     <Route exact path="/compensations" component={CompensationsHome} />
                     <Route exact path="/reviews" component={ReviewsHome} />
+                    <Route exact path="/companies" component={CompanyDetailsHome} />
                     <Route exact path="/contribute" component={ContributePage} />
                 </Switch>
             </div>

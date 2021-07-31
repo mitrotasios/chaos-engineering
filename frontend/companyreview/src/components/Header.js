@@ -32,6 +32,7 @@ class Header extends Component {
                         <div className="col-12">
                             <span className="nav-btn"><a href="/compensations" type="button">Compensations</a></span>
                             <span className="nav-btn"><a href="/reviews" type="button">Reviews</a></span>
+                            <span className="nav-btn"><a href="/companies" type="button">Companies</a></span>
                         </div>
                     </div>
                 </div>
