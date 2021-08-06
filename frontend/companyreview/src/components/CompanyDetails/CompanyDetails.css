@@ -22,3 +22,8 @@
     background-color: #00FF85;
     border-radius: 10px;
 }
+
+.company-card-body > .section-title {
+    color: #464646;
+    font-weight: 500;
+}

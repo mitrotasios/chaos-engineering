@@ -33,7 +33,7 @@ class CompanyDetailsHome extends Component {
             }
         )
         .then(response => response.json())
-        .then(response => this.setState({ data: response.payload, isLoading: false }))
+        .then(response => {this.setState({ data: response.payload, isLoading: false })})
         .catch(error => {this.setState({ isLoading: false, isError: true, errMess: "Failed to fetch content." }); console.log(error)});
     }
 
