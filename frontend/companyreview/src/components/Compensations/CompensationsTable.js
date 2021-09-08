@@ -20,8 +20,6 @@ export const CompensationsTable = ({ data }) => {
       useSortBy
     )
   
-    // We don't want to render all 2000 rows for this example, so cap
-    // it at 20 for this use case
     const firstPageRows = rows.slice(0, 20)
   
     return (
@@ -35,7 +33,6 @@ export const CompensationsTable = ({ data }) => {
                   // we can add them into the header props
                   <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render('Header')}
-                    {/* Add a sort direction indicator */}
                     <span>
                       {column.isSorted
                         ? column.isSortedDesc
@@ -65,7 +62,6 @@ export const CompensationsTable = ({ data }) => {
           </tbody>
         </table>
         <br />
-        {/* <div>Showing the first 20 results of {rows.length} rows</div> */}
       </>
     )
 }

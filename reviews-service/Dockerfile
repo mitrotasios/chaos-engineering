@@ -16,8 +16,6 @@ ENV LANG C.UTF-8
 ENV DEBIAN_FRONTEND=noninteractive 
 
 # set project environment variables
-# grab these via Python's os.environ
-# these are 100% optional here
 ENV PORT=8000
 
 # Install system dependencies
@@ -41,3 +39,5 @@ RUN pip3 install pipenv
 RUN pipenv install --skip-lock --system --dev
 
 CMD gunicorn reviewsservice.wsgi:application --bind 0.0.0.0:$PORT
+
+

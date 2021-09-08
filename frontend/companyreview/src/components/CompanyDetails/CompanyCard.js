@@ -16,7 +16,7 @@ export function CompanyCard(props) {
                         </div>
                     </div>
                     <div className="row company-card-body px-2 mt-3 mb-3">
-                        <div className="section-title mb-3">Average Compensations</div>
+                        <div className="section-title mb-3">Average Compensation</div>
                         {companyStats.compensation_information!=null ? 
                             (
                                 companyStats.compensation_information.map(compensation => (
@@ -27,7 +27,7 @@ export function CompanyCard(props) {
                                     </>
                                 ))
                             )
-                        : (null) }
+                        : (<div className="col"><i>Not Enough Data</i></div>) }
                     </div>
                 </div>
             </div>

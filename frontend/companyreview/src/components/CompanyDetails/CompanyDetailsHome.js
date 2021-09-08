@@ -18,7 +18,7 @@ class CompanyDetailsHome extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8000/all-companies')
+        fetch('http://localhost:8002/all-companies')
         //fetch(BASE_URL + 'compensations')
         .then(response => {
             if (response.ok) {

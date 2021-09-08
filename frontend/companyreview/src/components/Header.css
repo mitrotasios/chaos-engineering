@@ -5,12 +5,12 @@
 
 .navbar-wrapper {
     height: 50px;
-    background: #BABDFF;
+    background: white;
 }
 
 .logo {
-    font-size: x-large;
-    color: #464646;
+    font-size: 30px;
+    color: lightskyblue;
     margin-right: 50px;
 }
 
@@ -42,7 +42,14 @@
 .nav-btn > a {
     margin-right: 30px;
     text-decoration: none;
-    color: white;
+    color: #464646;
+    font-weight: 700;
+}
+
+.nav-btn > a:hover {
+    margin-right: 30px;
+    text-decoration: none;
+    color: lightskyblue;
     font-weight: 700;
 }
 

@@ -15,7 +15,7 @@ import companystats.parse_data as parse_data
 def company_info_list(request):
     if request.method == "GET":
         # Make calls to other microservices in the cluster to retrieve relevant data
-        compensations_url = "http://localhost:8888/" #BASE_URL+"compensations/"
+        compensations_url = "http://localhost:8000/" #BASE_URL+"compensations/"
         reviews_url = "http://localhost:8001/" #BASE_URL+"reviews/"
         response_data = []
 
