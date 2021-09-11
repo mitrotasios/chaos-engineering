@@ -1,6 +1,16 @@
+## Collections of helper functions to parse compensation and reviews data
+
 def get_companies(*args):
+    """
+    Creates list of unique companies reviewed or containing compensation information, 
+    available in either the reviews or compensation service's databases
+
+    Arguments:
+        *args: a list of company information (reviews data and/or compensation data)
+    """
     companies_list = set()
 
+    # Looping through datasets to store company names in the set
     for data_set in args:
         for entry in data_set:
             companies_list.add(entry["company"])
@@ -8,6 +18,7 @@ def get_companies(*args):
     return companies_list
 
 def get_avg_ratings(companies_list, reviews_data):
+    
     total_ratings = {}
     ratings = {}
 

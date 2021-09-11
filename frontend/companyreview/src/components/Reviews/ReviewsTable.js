@@ -20,8 +20,6 @@ export const ReviewsTable = ({ data }) => {
       useSortBy
     )
   
-    // We don't want to render all 2000 rows for this example, so cap
-    // it at 20 for this use case
     const firstPageRows = rows.slice(0, 20)
   
     return (
@@ -31,11 +29,8 @@ export const ReviewsTable = ({ data }) => {
             {headerGroups.map(headerGroup => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map(column => (
-                  // Add the sorting props to control sorting. For this example
-                  // we can add them into the header props
                   <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render('Header')}
-                    {/* Add a sort direction indicator */}
                     <span>
                       {column.isSorted
                         ? column.isSortedDesc
@@ -65,7 +60,6 @@ export const ReviewsTable = ({ data }) => {
           </tbody>
         </table>
         <br />
-        {/* <div>Showing the first 20 results of {rows.length} rows</div> */}
       </>
     )
 }
