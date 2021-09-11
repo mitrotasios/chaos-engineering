@@ -4,6 +4,7 @@ import { REVIEWS_COLUMNS } from './ReviewsColumns';
 import '../Table.css';
 
 export const ReviewsTable = ({ data }) => {
+
     const columns = REVIEWS_COLUMNS;
 
     const {

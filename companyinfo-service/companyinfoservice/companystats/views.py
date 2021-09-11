@@ -21,8 +21,10 @@ def company_info_list(request):
         ## Make calls to other microservices in the cluster to retrieve relevant data
         ## If fails to fetch data, error (Status 500) is returned to the client
         
-        compensations_url = "http://localhost:8000/" #BASE_URL+"compensations/"
-        reviews_url = "http://localhost:8001/" #BASE_URL+"reviews/"
+        #print(BASE_URL+"compensations")
+        #return Response({ "payload": [] }, status=status.HTTP_200_OK)
+        compensations_url = BASE_URL+"compensations" #"http://localhost:8000/" #
+        reviews_url = BASE_URL+"reviews" #"http://localhost:8001/" 
         response_data = []
 
         # Fetch compensation data

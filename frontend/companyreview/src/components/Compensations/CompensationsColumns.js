@@ -20,10 +20,15 @@ export const COMP_COLUMNS = [
     {
         Header: 'Total Compensation',
         accessor: 'total_compensation',
+        Cell: ({value}) => (value!=null ? "USD "+numberWithCommas(String(Number(value).toFixed(2))): '')
     },
     {
-        Header: 'Created At',
+        Header: 'Posted At',
         accessor: 'created_at',
         Cell: ({value}) => (value!=null ? format(new Date(value), 'dd/MM/yyyy'): '')
     },    
 ]
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

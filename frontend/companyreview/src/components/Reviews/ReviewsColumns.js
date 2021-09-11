@@ -22,7 +22,7 @@ export const REVIEWS_COLUMNS = [
         accessor: 'review',
     },
     {
-        Header: 'Created At',
+        Header: 'Posted At',
         accessor: 'created_at',
         Cell: ({value}) => (value!=null ? format(new Date(value), 'dd/MM/yyyy'): '')
     },    

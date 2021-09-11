@@ -4,15 +4,18 @@ import { BASE_URL } from "../../config";
 import PostMessage from "../Misc/PostMessage";
 
 export const ReviewsForm = () => {
+  /*
+  Component rendering a form for users to submit company reviews
+  */
   const { register, errors, handleSubmit } = useForm();
 
   const [isPosted, setPosted] = useState(null)
   const [errMess, setErrMess] = useState("")
 
   const onSubmit = (data) => {
+    // Post form data to the server
     fetch(
-        //'http://localhost:8888/',
-        BASE_URL+'compensations',
+        BASE_URL+'reviews',
         {
             method: 'post',
             body: JSON.stringify(data),

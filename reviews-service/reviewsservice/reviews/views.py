@@ -20,6 +20,9 @@ def reviews_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "DELETE":
+        Review.objects.all().delete()
+        return Response({"Message": "Deleted succesfully"}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def review_detail(request, id):

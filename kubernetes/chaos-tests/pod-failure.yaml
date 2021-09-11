@@ -7,7 +7,7 @@ spec:
   action: pod-failure
   mode: all
   value: ''
-  duration: '1m'
+  duration: '3m'
   selector:
     namespaces:
       - ingress-basic

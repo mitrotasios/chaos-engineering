@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: compensation-svc
+  name: companyinfo-svc
   labels:
-    app: compensation-svc
+    app: companyinfo-svc
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: compensation-svc
+      app: companyinfo-svc
   template:
     metadata:
       labels:
-        app: compensation-svc
+        app: companyinfo-svc
     spec:
       containers:
-        - name: compensation-svc
-          image: chaosengacr2.azurecr.io/compensation-service:v1.2.0
+        - name: companyinfo-svc
+          image: chaosengacr2.azurecr.io/companyinfo-service:v1.2.0
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8888
+            - containerPort: 80
           resources:
             requests:
               memory: "64Mi"
@@ -31,13 +31,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: compensation-svc
+  name: companyinfo-svc
 spec:
   type: ClusterIP
   selector:
-    app: compensation-svc
+    app: companyinfo-svc
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8888
+      targetPort: 8001
+      
       

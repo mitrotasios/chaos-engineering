@@ -6,6 +6,10 @@ import LoadingSpinner from '../Misc/Loading';
 import FetchErrorMsg from '../Misc/FetchError';
 
 class CompanyDetailsHome extends Component {
+    /*
+    Component rendering simple statistics for each company based on the submitted data.
+    The data is displyed within a card, one for each company.
+    */
     constructor(props) {
         super(props);
 
@@ -18,8 +22,8 @@ class CompanyDetailsHome extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8002/all-companies')
-        //fetch(BASE_URL + 'compensations')
+        // Call companies service, which returns the statistics on a company level
+        fetch(BASE_URL + 'companies')
         .then(response => {
             if (response.ok) {
                 return response;

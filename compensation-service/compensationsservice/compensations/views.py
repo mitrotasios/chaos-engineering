@@ -20,6 +20,9 @@ def compensations_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "DELETE":
+        Compensation.objects.all().delete()
+        return Response({"Message": "Deleted succesfully"}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def compensation_detail(request, id):
@@ -41,12 +44,3 @@ def compensation_detail(request, id):
         compensation.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-"""
-company = models.CharField(max_length=50, unique=False, null=False, default=False)
-location = models.CharField(max_length=50, unique=False, null=False, default=False)
-job_title = models.CharField(max_length=50, unique=False, null=False, default=False)
-years_of_experience = models.IntegerField(null=False, default=0)
-total_compensation = models.IntegerField(null=False, default=False)
-created_at = models.DateTimeField(auto_now_add=True)
-"""
-    

@@ -6,6 +6,8 @@ import LoadingSpinner from '../Misc/Loading';
 import FetchErrorMsg from '../Misc/FetchError';
 
 class CompensationsHome extends Component {
+    /* Component rendering all the submitted compensation information by displaying them in a tabular structure */
+
     constructor(props) {
         super(props);
 
@@ -18,8 +20,8 @@ class CompensationsHome extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8000/')
-        //fetch(BASE_URL + 'compensations')
+        // Fetch compensation data from server
+        fetch(BASE_URL + 'compensations')
         .then(response => {
             if (response.ok) {
                 return response;

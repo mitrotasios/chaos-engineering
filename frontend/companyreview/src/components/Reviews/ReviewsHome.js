@@ -6,6 +6,8 @@ import { BASE_URL } from '../../config';
 import { ReviewsTable } from './ReviewsTable';
 
 class ReviewsHome extends Component {
+    /* Component rendering all the submitted reviews information by displaying them in a tabular structure */
+    
     constructor(props) {
         super(props);
 
@@ -18,8 +20,8 @@ class ReviewsHome extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8001/')
-        //fetch(BASE_URL + 'reviews')
+        // Fetching reviews information from the server
+        fetch(BASE_URL + 'reviews')
         .then(response => {
             if (response.ok) {
                 return response;

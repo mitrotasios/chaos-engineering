@@ -10,9 +10,7 @@ spec:
     namespaces:
       - ingress-basic
     labelSelectors:
-      "app": "compensation-svc"
-    #labelSelectors:
-    #  namespace: ingress-basic
-    #  "app": "compensation-svc"
+      "app": "compensation-svc"    
   scheduler:
     cron: "@every 2m"
+

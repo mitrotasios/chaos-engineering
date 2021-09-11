@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/default-backend: reviews-svc
+    
 spec:
   rules:
   - http:
@@ -24,6 +24,13 @@ spec:
         backend:
           service:
             name: reviews-svc
+            port:
+              number: 80
+      - path: /companies(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: companyinfo-svc
             port:
               number: 80
       - path: /(.*)

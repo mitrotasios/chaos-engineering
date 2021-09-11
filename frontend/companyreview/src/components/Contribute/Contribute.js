@@ -4,6 +4,9 @@ import { ReviewsForm } from "./ReviewsForm";
 import './Contribute.css'
 
 class ContributePage extends Component {
+    /* 
+    Component rendering the contribute page, i.e. the two forms to submit either a review or salary information.
+    */
     constructor(props) {
         super(props);
 

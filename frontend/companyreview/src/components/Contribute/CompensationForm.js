@@ -4,15 +4,19 @@ import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../config";
 
 export const CompensationForm = () => {
+  /*
+  Component rendering a form for users to submit salary information
+  */
+
   const { register, errors, handleSubmit } = useForm();
   
   const [isPosted, setPosted] = useState(null)
   const [errMess, setErrMess] = useState("")
 
   const onSubmit = (data) => {
+    // Post form data to server
     fetch(
-        'http://localhost:8000/',
-        //BASE_URL+'compensations',
+        BASE_URL+'compensations',
         {
             method: 'post',
             body: JSON.stringify(data),

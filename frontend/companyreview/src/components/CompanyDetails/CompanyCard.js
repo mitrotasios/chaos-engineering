@@ -22,7 +22,7 @@ export function CompanyCard(props) {
                                 companyStats.compensation_information.map(compensation => (
                                     <>
                                     <div className="col">{compensation.job_title}</div>
-                                    <div className="col">{compensation.average_compensation} €</div>
+                                    <div className="col">{String(Number(compensation.average_compensation).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} €</div>
                                     <div className="col">{compensation.number_of_entries} entries</div>
                                     </>
                                 ))
