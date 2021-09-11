@@ -1,8 +1,8 @@
 from django.db import models
 
-# Create your models here.
 
 class Review(models.Model):
+    # Review model attributes definition
     company = models.CharField(max_length=50, unique=False, null=False, default=False)
     location = models.CharField(max_length=50, unique=False, null=False, default=False)
     job_title = models.CharField(max_length=50, unique=False, null=False, default=False, blank=False)
