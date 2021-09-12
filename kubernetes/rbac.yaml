@@ -1,3 +1,4 @@
+# Dashboard Access Config
 kind: ServiceAccount
 apiVersion: v1
 metadata:
